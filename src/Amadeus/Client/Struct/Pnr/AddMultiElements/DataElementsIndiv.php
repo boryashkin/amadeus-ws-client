@@ -42,6 +42,11 @@ class DataElementsIndiv extends WsMessageUtility
      * @var ElementManagementData
      */
     public $elementManagementData;
+    /**
+     * To allow access to a PNR for other offices
+     *
+     * @var Element\PnrSecurity
+     */
     public $pnrSecurity;
     /**
      * @var Accounting
@@ -276,6 +281,10 @@ class DataElementsIndiv extends WsMessageUtility
                     $element->ticketNumber
                 );
                 break;
+            case 'PnrSecurity':
+                /** @var Element\PnrSecurity $element */
+                $this->pnrSecurity = $element;
+                break;
             default:
                 throw new InvalidArgumentException('Element type '.$elementType.' is not supported');
         }
@@ -306,7 +315,8 @@ class DataElementsIndiv extends WsMessageUtility
             'ManualCommission' => ElementManagementData::SEGNAME_COMMISSION,
             'SeatRequest' => ElementManagementData::SEGNAME_SEAT_REQUEST,
             'TourCode' => ElementManagementData::SEGNAME_TOUR_CODE,
-            'ManualIssuedTicket' => ElementManagementData::SEGNAME_MANUAL_DOCUMENT_REGISTRATION_WITH_ET_NUMBER
+            'ManualIssuedTicket' => ElementManagementData::SEGNAME_MANUAL_DOCUMENT_REGISTRATION_WITH_ET_NUMBER,
+            'PnrSecurity' => ElementManagementData::SEGNAME_ELEMENT_SECURITY,
         ];
 
         if (array_key_exists($elementType, $sourceArray)) {

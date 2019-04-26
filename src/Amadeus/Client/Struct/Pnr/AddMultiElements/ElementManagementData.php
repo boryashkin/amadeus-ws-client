@@ -138,7 +138,15 @@ class ElementManagementData
      * @var string
      */
     const SEGNAME_MANUAL_DOCUMENT_REGISTRATION_WITH_ET_NUMBER = "FHE";
-    
+
+    /**
+     * ES - Amadeus individual PNR security (ES Element) allows you to set up special security rules to allow or disallow
+     * a PNR from being accessed by one or several other offices. 
+     *
+     * @var string
+     */
+    const SEGNAME_ELEMENT_SECURITY = "ES";
+
     /**
      * @var Reference
      */
